@@ -1298,9 +1298,9 @@ FROM
 				
 			}
 		} 	
-		
+		$resposta_final = anti_injection($this->resposta_final);
 		$SQL = 'UPDATE manifestacao SET 
-        resposta_final=\''.$this->resposta_final.'\', 
+        resposta_final=\''.$resposta_final.'\', 
         data_finalizacao=now(),
 		ref_status=3 
         WHERE 
@@ -1309,7 +1309,7 @@ FROM
 		if ($resposta1!='')
 		{
 			 $SQL = 'UPDATE manifestacao SET 
-        resposta_final=\''.$resposta1 .' '. $this->resposta_final.'\', 
+        resposta_final=\''.$resposta1 .' '. $resposta_final.'\', 
         data_finalizacao=now(),
 		ref_status=3 
         WHERE 
